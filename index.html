@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Time Conversion</title>
+    <script>
+        function convertTime() {
+            // Get the current date and time
+            var now = new Date();
+
+            // Convert the time to the new unit system
+            var seconds = now.getSeconds() + (now.getMilliseconds() / 1000);
+
+            var newSeconds = Math.floor(seconds / 0.6);
+            var newMinutes = Math.floor(now.getMinutes() / 0.6);
+            var newHours = Math.floor(now.getHours() / 1.2);
+
+            // Format the time for display on the web page
+            var displayTime = padWithLeadingZeros(newHours, 2) + ":" + padWithLeadingZeros(newMinutes, 2) + ":" + padWithLeadingZeros(newSeconds, 2);
+
+            // Display the time on the web page
+            document.getElementById("time").innerHTML = displayTime;
+        }
+
+        function padWithLeadingZeros(num, totalLength) {
+            return String(num).padStart(totalLength, '0');
+        }
+        // Call the convertTime function every second to update the time on the web page
+        setInterval(convertTime, 60);
+
+    </script>
+    <style>
+        html
+        {
+            margin: 0;
+        }
+
+        body {
+            background-color: #1d1d1d;
+            color: #eeeeee;
+            font-family: 'Franklin Gothic Medium', sans-serif, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media screen and (max-width: 650px) {
+                span {
+                font-size: 20vw;
+                text-size-adjust: 50%;
+            }
+            p   {
+                font-size: 4vw;
+                margin-top: 1rem;
+                padding-top: 5rem;
+            }
+        }
+
+        @media screen and (min-width: 651px) {
+            span {
+                font-size: 10rem;
+                text-size-adjust: 50%;
+            }
+            p   {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+                padding-top: 5rem;
+            }
+        }
+
+
+        #time{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+  </head>
+  <body>
+    <p>The current mathematically perfect time is:</p>
+    <p><br><br><br><br></p>
+    <p><span id="time"></span></p>
+  </body>
+</html>
