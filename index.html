@@ -10,9 +10,10 @@
 
             // Convert the time to the new unit system
             var seconds = now.getSeconds() + (now.getMilliseconds() / 1000);
+            var minutes = now.getMinutes() + (now.getSeconds() / 60);
 
             var newSeconds = Math.floor(seconds / 0.6);
-            var newMinutes = Math.floor(now.getMinutes() / 0.6);
+            var newMinutes = Math.floor(minutes / 0.6);
             var newHours = Math.floor(now.getHours() / 1.2);
 
             // Format the time for display on the web page
@@ -82,7 +83,7 @@
     </style>
   </head>
   <body>
-    <p>The current mathematically perfect time is:</p>
+    <p>The current time is:</p>
     <p><br><br><br><br></p>
     <p><span id="time"></span></p>
   </body>
