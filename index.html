@@ -9,19 +9,20 @@
             var now = new Date();
 
             // Convert the time to the new unit system
-            var seconds = now.getSeconds() + (now.getMilliseconds() / 1000);
-            var minutes = now.getMinutes() + (now.getSeconds() / 60);
+            var secondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds() + (now.getMilliseconds() / 1000);
+            var newSecondsInDay = secondsInDay / 0.432; // Update the conversion factor to
 
-            var newSeconds = Math.floor(seconds / 0.6);
-            var newMinutes = Math.floor(minutes / 0.6);
-            var newHours = Math.floor(now.getHours() / 1.2);
+            var seconds = Math.floor(newSecondsInDay % 100).toString().padStart(2, '0'); // Add padding to seconds
+            var minutes = Math.floor((newSecondsInDay / 100) % 100).toString().padStart(2, '0'); // Add padding to minutes
+            var hours = Math.floor(newSecondsInDay / 10000).toString();
 
             // Format the time for display on the web page
-            var displayTime = padWithLeadingZeros(newHours, 2) + ":" + padWithLeadingZeros(newMinutes, 2) + ":" + padWithLeadingZeros(newSeconds, 2);
+            var displayTime = hours + ":" + minutes + ":" + seconds;
 
             // Display the time on the web page
             document.getElementById("time").innerHTML = displayTime;
         }
+
 
         function padWithLeadingZeros(num, totalLength) {
             return String(num).padStart(totalLength, '0');
@@ -50,7 +51,7 @@
         
         @media screen and (max-width: 650px) {
                 span {
-                font-size: 20vw;
+                font-size: 5vw;
                 text-size-adjust: 50%;
             }
             p   {
