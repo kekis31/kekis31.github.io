@@ -1,91 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Time Conversion</title>
-    <script>
-        function convertTime() {
-            // Get the current date and time
-            var now = new Date();
-
-            // Convert the time to the new unit system
-            var secondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds() + (now.getMilliseconds() / 1000);
-            var newSecondsInDay = secondsInDay / 0.432; // Update the conversion factor to
-
-            var seconds = Math.floor(newSecondsInDay % 100).toString().padStart(2, '0'); // Add padding to seconds
-            var minutes = Math.floor((newSecondsInDay / 100) % 100).toString().padStart(2, '0'); // Add padding to minutes
-            var hours = Math.floor(newSecondsInDay / 10000).toString();
-
-            // Format the time for display on the web page
-            var displayTime = hours + ":" + minutes + ":" + seconds;
-
-            // Display the time on the web page
-            document.getElementById("time").innerHTML = displayTime;
-        }
-
-
-        function padWithLeadingZeros(num, totalLength) {
-            return String(num).padStart(totalLength, '0');
-        }
-        // Call the convertTime function every second to update the time on the web page
-        setInterval(convertTime, 60);
-
-    </script>
+    <head>
+        <meta charset="UTF-8">
+        <title>kekis31.github.io</title>
+    </head>
     <style>
-        html
-        {
-            margin: 0;
-        }
-
-        body {
-            background-color: #1d1d1d;
-            color: #eeeeee;
+        body{
+            background-color: #111111;
             font-family: 'Franklin Gothic Medium', sans-serif, sans-serif;
             text-align: center;
+            font-size: x-large;
         }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-top: 2rem;
+        h1{
+            color: #eeeeee;
         }
-        
-        @media screen and (max-width: 650px) {
-                span {
-                font-size: 20vw;
-                text-size-adjust: 50%;
-            }
-            p   {
-                font-size: 4vw;
-                margin-top: 1rem;
-                padding-top: 5rem;
-            }
+        p{
+            color: #eeeeee;
         }
-
-        @media screen and (min-width: 651px) {
-            span {
-                font-size: 10rem;
-                text-size-adjust: 50%;
-            }
-            p   {
-                font-size: 1.5rem;
-                margin-top: 1rem;
-                padding-top: 5rem;
-            }
+        a{
+            color: aqua;
         }
-
-
-        #time{
-            position: absolute;
-            top:50%;
-            left:50%;
-            transform: translate(-50%, -50%);
-        }
-
     </style>
-  </head>
-  <body>
-    <p>The current time is:</p>
-    <p><br><br><br><br></p>
-    <p><span id="time"></span></p>
-  </body>
+    <body>
+        <h1>Welcome to kekis31.github.io</h1>
+        <p>fancier site coming later (maybe)<br><br></p>
+        <a href="fuftime.html">fuftime</a>
+        <br><br>
+        <a href="https://kekis.itch.io/">my games</a>
+    </body>
 </html>
